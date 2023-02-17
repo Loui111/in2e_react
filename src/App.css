@@ -1,38 +1,1096 @@
-.App {
-  text-align: center;
-}
+/* @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Yeon+Sung&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Gothic+Coding&display=swap");
+/* @import "react-slideshow-image/dist/styles.css" */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  font-family: "Gamja Flower";
+  min-height: 100vh; /* Viewport Height? 현재 웹스크린의 100%를 최소높이로 갖겠다??? 먼소리야 */
+  margin: 0px; /* html body는 마진이 맨위에 살짝 있는데 그건 없애버린다. */
 }
+/* Nanum Gothic Coding */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (min-width: 650px) {
+  /* 괄호 안에 있는 모든 css규칙은 650픽셀 이상일 떄만 이 규칙이 적용된다? 
+                            아 이거 브라우져 줄이면 색상 바뀌거나 하는 등 반응형웹 도구임. */
+  .App {
+    /* width: 600px; */
+    width: 390px;
+    height: auto;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@media (max-width: 650px) {
+  /* 브라우져의 화면이 650픽셀 '이하' 일때 적용 (이상 아님)*/
+  .App {
+    width: 90vw; /* Viewport With지금 화면에서 90퍼센트를 차지하겠다.  */
+  }
+}
+
+#root {
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; /* 그림자를 만들수 있음. 이거 중요!! ㅋㅋ */
+}
+
+.App {
+  min-height: 100vh; /* 기본적으로 화면의 100퍼를 차지하는 높이를 갖게 된다. */
+  padding-left: 20px; /* 왼쪽 오른쪽 딱 붙어있으면 못생겼으니 좀 띄어야함 */
+  padding-right: 20px;
+  height: auto; /*이거 왜  auto 가 안되지? 가변길이? */
+}
+
+/* 이 위쪽은 공통 적용한 부분. 이제 아래부터 내 화면 스타일링 */
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+.Search {
+  justify-content: center;
+  align-items: center;
   display: flex;
-  flex-direction: column;
+}
+
+.Search .search_textarea {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 25px;
+  width: 90%;
+
+  resize: none;
+
+  justify-content: center;
+  align-items: center;
+  background-color: #ececec;
+
+  border: none;
+  border-radius: 5px; /* 모서리 살짝 둥글게 */
+}
+
+.Slide .Slide_wrapper {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  margin-bottom: 20px;
+}
+
+.Slide .Slide_image {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.Slide .Slide_image img {
+  width: 330px;
+  height: 330px;
+  border-radius: 5px;
+}
+
+/* TypePage_wrapper */
+/* Icons */
+
+/* TypeItem_shops
+image_wrapper */
+
+/* TypeItem_shops */
+
+.TypeList {
+  display: grid;
+  grid-template-columns: repeat(
+    4,
+    auto
+  ); /* 네모칸을 5개 배열해라. 크기는 auto조절하고  */
+  gap: 8%;
+  /* column-gap: 10px; */
+  /* row-gap: 30px; */
+}
+
+.TypeItem_wrapper {
+  cursor: pointer;
+
+  /* margin-top: 5px; */
+
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+
+  display: flex; /* flex는 원래 옆으로 보내는건데, 밑에 flex-direction:column 하면 다시 밑으로 붙는다 , */
+  flex-direction: column; /*여기선 이미지 밑에 글자를 배치시키려고 쓴거랜다.  */
+  justify-content: center; /* 컬럼을 중심으로 세로의 중앙점을 찾아주는 */
+  align-items: center;
+}
+
+.TypeItem_wrapper .image_wrapper img {
+  width: 64px;
+  height: 64px;
+}
+
+.Company_section {
+  font-family: "Nanum Gothic Coding";
+  font-size: 15px;
+  background-color: #ececec;
+  border-radius: 5px;
+}
+
+.TypePage_shopitem {
+  width: 100%;
+}
+
+.ShopList {
+  display: grid;
+  grid-template-columns: repeat(
+    2,
+    auto
+  ); /* 네모칸을 5개 배열해라. 크기는 auto조절하고  */
+  gap: 2%;
+  /* column-gap: 10px; */
+  /* row-gap: 30px; */
+}
+
+.ShopItem_wrapper .image_wrapper img {
+  width: 190px;
+  height: 280px;
+}
+
+.ShopItem_wrapper {
+  cursor: pointer;
+  border-bottom: 1px solid lightgray; /*아래 구분선 줄긋기는 이걸로 */
+  /* margin-top: 5px; */
+  /* border-radius: 5px; */
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  margin-bottom: 10px;
+
+  display: flex; /* flex는 원래 옆으로 보내는건데, 밑에 flex-direction:column 하면 다시 밑으로 붙는다 , */
+  flex-direction: column; /*여기선 이미지 밑에 글자를 배치시키려고 쓴거랜다.  */
+  justify-content: left; /* 컬럼을 중심으로 세로의 중앙점을 찾아주는 */
+  align-items: left;
+
+  /* border-bottom: ; */
+}
+
+.ShopItem .title_wrapper {
+  font-size: 18px;
+  font-style: bold;
+  align-items: left;
+  justify-self: left;
+  /* display: flex; */
+  margin-bottom: 5px;
+}
+
+.ShopItem .price_wrapper {
+  font-size: 17px;
+}
+
+.ShopItem .review_wrapper img {
+  width: 15px;
+  height: 15px;
+}
+
+.ShopItem .review_wrapper {
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+.ShopItem .text_wrapper .discount {
+  color: #fd8446;
+}
+
+.DetailPage .image_wrapper img {
+  width: 400px;
+  height: 400px;
+}
+
+.SubTypeScroll {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  /* font-family: "Nanum Gothic Coding"; */
+
+  /* border: #64c964; */
+}
+
+/* .SubTypeScroll .scroll_wrapper {
+  border: #64c964;
+} */
+
+.SubTypeScroll span {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.DetailPage_shopimage .image_wrapper img {
+  width: 390px;
+  height: auto;
+}
+
+.DetailPage_shopimage .image_wrapper {
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.DetailPage_content .shop_title {
+  font-family: "Nanum Gothic Coding";
+  font-size: 25px;
+}
+
+.DetailPage_content .shop_desc {
+  /* font-family: "Nanum Gothic Coding"; */
+  font-size: 23px;
+  width: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #ececec;
+  margin-bottom: 10px;
+  border-radius: 10px;
+
+  /* padding: 3px; */
+  /* 
+  padding-top: 0px;
+  padding-left: 3px; */
+}
+
+.DetailPage_content h5 {
+  padding: 15px;
+}
+
+.subDetail .detail_move_button {
+  border-top: 1px solid lightgray;
+  margin-top: 20px;
+  padding-top: 20px;
+  display: grid; /* grid 즉, 네모칸으로 배열하란거 ㅁㅁㅁㅁㅁ 이렇게  */
+  grid-template-columns: repeat(
+    4,
+    auto
+  ); /* 네모칸을 5개 배열해라. 크기는 auto조절하고  */
+  gap: 5%;
+}
+
+.DetailPage .detail_move_button .detail_button_option {
+  border: none;
+  border-radius: 10px;
+  width: 75px;
+  height: 40px;
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.DetailPage .detail_move_button .detail_button_info {
+  border: none;
+  border-radius: 10px;
+  width: 75px;
+  height: 40px;
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.DetailPage .detail_move_button .detail_button_review {
+  border: none;
+  border-radius: 10px;
+  width: 75px;
+  height: 40px;
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.DetailPage .detail_move_button .detail_button_guide {
+  border: none;
+  border-radius: 10px;
+  width: 75px;
+  height: 40px;
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.ShopOptionList {
+  margin-top: 20px;
+}
+
+.ShopOptionItem {
+  margin-top: 8px;
+  padding: 5px;
+  font-family: "Nanum Gothic Coding";
+
+  /* background-color: #ececec; */
+  line-height: 1.5;
+
+  /* width: 400px; */
+  border-bottom: 1px solid lightgray; /*아래 구분선 줄긋기는 이걸로 */
+}
+
+.ShopOptionItem .title {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.ShopOptionItem .count {
+  color: blue;
+}
+
+.ShopOptionItem .price {
+  color: gray;
+  text-decoration-line: line-through;
+  font-size: 11px;
+}
+
+.ShopOptionItem .discount {
+  color: black;
+  font-weight: bold;
+}
+
+.ShopOptionItem .desc {
+  font-size: small;
+  color: gray;
+  font-weight: bold;
+}
+
+.ShopOptionItem .add {
+  margin-top: 10px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  background-color: darkgray;
+  border: none;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-left: 4px;
+  margin-right: 4px;
+  /* position: fixed; */
+}
+
+.ShopOptionItem .sub {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  background-color: darkgray;
+  border: none;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.SubDetail .button {
+  margin-top: 20px;
+}
+
+.ShopInfo {
+  padding: 10px;
+  background-color: #ececec;
+  border: none;
+  border-radius: 5px;
+}
+
+.ShopInfo .ShopInfo_shopMap img {
+  width: 370px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* object-fit: cover; */
+}
+
+.ShopInfo .shop_text_wrapper {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-family: "Nanum Gothic Coding";
+  line-height: 2; /* 한줄 한줄 간격을 여유있게 주는거 줄간격 자간 줄 간격 */
+}
+
+/* 안쪽 영역을 4:6 으로 양분하기 review_star_draw_wrapper : review_star_each_wrapper */
+.ShopReviewScore {
+  position: relative;
+  width: 100%;
+}
+
+.ShopReviewScore .review_star_draw_wrapper {
+  width: 50%;
+  height: 130px;
+  float: left;
+  background-color: beige;
+  border-radius: 5px;
+}
+
+.ShopReviewScore .review_star_each_wrapper {
+  /* padding-left: 20px; */
+  width: 30%;
+  height: 130px;
+  float: left;
+  border-radius: 5px;
+  /* background-color: beige; */
+}
+
+.ShopReviewScore .review_star_each_number {
+  width: 20%;
+  height: 130px;
+  float: left;
+}
+
+.button_review {
+  margin-top: 30px;
+  margin-bottom: 0px;
+}
+
+/* 별 사이즈 줄이기 귀찮아서 css로 조정함. */
+.ShopReviewScore .review_star_draw img {
+  width: 30px;
+  height: 30px;
+}
+
+/* 별 사이즈 줄이기 귀찮아서 css로 조정함. */
+.ShopReviewScore .review_star_each_wrapper img {
+  width: 20px;
+  height: 20px;
+}
+
+.ShopReviewScore .review_star_draw {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ShopReviewScore .review_star_each_number {
+  font-size: 22px;
+}
+
+.ShopReviewScore .review_star_number {
+  padding-top: 40px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.ShopReviewGallery .gallery_image_wrapper img {
+  width: 90px;
+  height: 90px;
+
+  border-radius: 8px; /* 모서리 살짝 둥글게 */
+  cursor: pointer;
+}
+
+.ShopReviewGallery .gallery_count_no {
+  color: #fd8446;
+}
+
+/* .ShopReviewGallery {
+  margin-top: 40px;
+} */
+
+.ShopReviewGallery .gallery_count_text {
+  font-size: 30px;
+}
+
+.ShopReviewGallery .gallery_image {
+  display: grid; /* grid 즉, 네모칸으로 배열하란거 ㅁㅁㅁㅁㅁ 이렇게  */
+  grid-template-columns: repeat(
+    4,
+    auto
+  ); /* 네모칸을 5개 배열해라. 크기는 auto조절하고  */
+  gap: 2%;
+}
+
+.ShopRerviewList .ShopRerviewList .review_count_no {
+  color: #fd8446;
+}
+
+.ShopRerviewList .review_count_wrapper {
+  font-size: 30px;
+}
+
+.ShopRerviewList .review_count_no {
+  color: #fd8446;
+}
+
+.ShopReview .ShopReviewItem .review_star img {
+  width: 15px;
+  height: 15px;
+}
+
+.ShopReview .ShopReviewItem {
+  margin-top: 20px;
+}
+
+.ShopReview .ShopReviewItem .review_user_option .review_user {
+  margin-right: 10px;
+}
+
+.ShopReview .ShopReviewItem .review_user_option .review_option {
+  margin-left: 10px;
+}
+
+.ShopReview .ShopReviewItem .review_content {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  /* font-family: "Nanum Gothic Coding"; */
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 10px;
+}
+
+.ShopGuide .guide_image img {
+  width: 85px;
+  height: 85px;
+}
+
+.ShopGuide .guide_image {
+  display: grid; /* grid 즉, 네모칸으로 배열하란거 ㅁㅁㅁㅁㅁ 이렇게  */
+  grid-template-columns: repeat(
+    6,
+    auto
+  ); /* 네모칸을 5개 배열해라. 크기는 auto조절하고  */
+  gap: 2%;
+}
+
+.ShopGuide .guide_image .guide_park {
+  display: flex; /* flex는 원래 옆으로 보내는건데, 밑에 flex-direction:column 하면 다시 밑으로 붙는다 , */
+  flex-direction: column; /*여기선 이미지 밑에 글자를 배치시키려고 쓴거랜다.  */
+  text-align: center;
+
+  width: 90px;
+}
+
+.ShopGuide .guide_image .guide_stay {
+  display: flex; /* flex는 원래 옆으로 보내는건데, 밑에 flex-direction:column 하면 다시 밑으로 붙는다 , */
+  flex-direction: column; /*여기선 이미지 밑에 글자를 배치시키려고 쓴거랜다.  */
+  text-align: center;
+
+  width: 90px;
+}
+
+.ShopGuide .guide_image .guide_today {
+  display: flex; /* flex는 원래 옆으로 보내는건데, 밑에 flex-direction:column 하면 다시 밑으로 붙는다 , */
+  flex-direction: column; /*여기선 이미지 밑에 글자를 배치시키려고 쓴거랜다.  */
+  text-align: center;
+
+  width: 90px;
+}
+
+.ShopGuide .guide_image .guide_prepare {
+  display: flex; /* flex는 원래 옆으로 보내는건데, 밑에 flex-direction:column 하면 다시 밑으로 붙는다 , */
+  flex-direction: column; /*여기선 이미지 밑에 글자를 배치시키려고 쓴거랜다.  */
+  text-align: center;
+
+  width: 90px;
+}
+
+.ShopGuide .guide_content {
+  margin-top: 20px;
+  font-family: "Nanum Gothic Coding";
+  background-color: #ececec;
+  padding: 20px;
+  border-radius: 5px; /* 모서리 살짝 둥글게 */
+  white-space: pre-wrap;
+}
+
+.ShopBizInfo {
+  margin-top: 20px;
+  padding: 20px;
+  border-top: 1px solid lightgray;
+}
+
+.ShopBizInfo .biz_title {
+  font-family: "Nanum Gothic Coding";
+  line-height: 30px;
+}
+
+.ShopBizInfo .biz_text {
+  font-family: "";
+  font-size: smaller;
+  line-height: 25px; /* 글자사이 간격 조정 */
+}
+
+.ShopOption .OptionPayment {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ShopOption .OptionPayment .pay_button {
+  cursor: pointer;
+  padding: 10px;
+  width: 80%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 8px; /* 모서리 살짝 둥글게 */
+  background-color: rgba(255, 176, 0, 0.9); /* 맨 뒤 수치는 투명도인듯  */
+}
+
+.ShopOption .OptionPayment .pay_text {
+  color: white;
+  font-size: large;
+  font-style: bold;
+}
+
+.Footer .Footer_wrapper {
+  margin-top: 20px;
+  border-top: #ececec;
+  display: flex;
+  align-items: center;
+  /* justify-items: center; */
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.Footer_wrapper .Footer_item img {
+  cursor: pointer;
+  width: 50%;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+}
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+/* My button */
+.MyButton {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px; /* 모서리 살짝 둥글게 */
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  /* 가끔 보면 padding: 10 10 20 20 이렇게도 있다는데 이게 상하좌우 랜다. */
+
+  font-size: 18px;
+
+  white-space: nowrap; /* 버튼안의 글자가 짤려서 2줄이 안되게 해준다?? */
+  font-family: "Nanum Gothic Coding";
+}
+
+.MyButton_default {
+  background-color: #ececec;
+  color: black;
+}
+
+.MyButton_positive {
+  background-color: #64c964;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.MyButton_negative {
+  background-color: #fd565f;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Header */
+header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  display: flex; /* flex로 주면 div태그가 가로로 먹는다고? 원래 div는 세로랜다. 근데 위에 body에도 썼는데?? */
+  align-items: center;
+  border-bottom: 1px solid #e2e2e2;
 }
+
+header > div {
+  /* header의 바로 아래자식인 div */
+  display: flex;
+}
+
+header .head_text {
+  /* header태그 안에서 head_text가진 녀석 */
+  width: 50%; /* 이게 있으면 최소 50%의 자리를 차지함 */
+  font-size: 25px;
+  justify-content: center;
+}
+
+header .head_btn_left {
+  width: 25%;
+  justify-content: start; /* 이거 start는 가장 왼쪽, center는 중앙, end는 가장 끗.  */
+}
+
+header .head_btn_right {
+  width: 25%;
+  justify-content: end;
+}
+
+header button {
+  font-family: "Nanum Gothic Coding";
+}
+
+.DiaryList .menu_wrapper {
+  margin-top: 20px;
+  margin-bottom: 30px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.DiaryList .menu_wrapper .right_col {
+  flex-grow: 1; /* 남은 영역 전체를 먹게하는 설정. (화면 분할) */
+}
+
+.DiaryList .menu_wrapper .right_col button {
+  width: 100%; /* 위의 flex-grow:1 설정과 합쳐지면, 이 버튼이 남은 영역 전부를 먹어버리는 설정 */
+}
+
+.DiaryList .ControlMenu {
+  margin-right: 10px; /* 서로 간격 살짝 띄우기*/
+  border: none; /* 보더 즉 둘레선을 없앰. 좀더 이뻐 보이긴함. */
+  border-radius: 5px; /* 모서리를 살짝 둥글게 */
+  background-color: #ececec;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  cursor: pointer;
+  font-family: "Nanum Gothic Coding";
+  font-size: 18px;
+}
+
+.DiaryItem {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e2e2e2;
+  display: flex;
+  justify-content: space-between; /* 아이템사이 간격을 동일하게 */
+}
+
+/* 아이템의 백그라운드 wrapper */
+.DiaryItem .emotion_img_wrapper {
+  /* 이미지를 감싸는 wrapper를 일정하게 해야 그림이 이쁘게 나오는듯?*/
+  cursor: pointer;
+  min-width: 120px;
+  height: 80px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.DiaryItem .emotion_img_wrapper_1 {
+  background-color: #64c964;
+}
+.DiaryItem .emotion_img_wrapper_2 {
+  background-color: #9dd772;
+}
+.DiaryItem .emotion_img_wrapper_3 {
+  background-color: #fdce17;
+}
+.DiaryItem .emotion_img_wrapper_4 {
+  background-color: #fd8446;
+}
+.DiaryItem .emotion_img_wrapper_5 {
+  background-color: #fd565f;
+}
+
+/* .DiaryItem .emotion_img_wrapper img {
+  width: 50%;
+} */
+
+.DiaryItem .info_wrapper {
+  flex-grow: 1; /* 남은 영역 전부 차지하게  */
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.DiaryItem .diary_date {
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.DiaryItem .diary_content_preview {
+  font-size: 18px;
+}
+
+.DiaryItem .btn_wrapper {
+  min-width: 70px;
+  cursor: pointer;
+}
+
+/* DiaryEditor */
+
+.DiaryEditor {
+}
+
+.DiaryEditor section {
+  margin-bottom: 40px;
+}
+
+.DiaryEditor h4 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.DiaryEditor .input_date {
+  border: none;
+  border-radius: 5px;
+  background-color: #ececec;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  cursor: pointer;
+  font-family: "Nanum Pen Script ";
+  font-size: 20px;
+}
+
+.EmotionItem {
+  cursor: pointer;
+
+  border-radius: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  display: flex; /* flex는 원래 옆으로 보내는건데, 밑에 flex-direction:column 하면 다시 밑으로 붙는다 , */
+  flex-direction: column; /*여기선 이미지 밑에 글자를 배치시키려고 쓴거랜다.  */
+  justify-content: center; /* 컬럼을 중심으로 세로의 중앙점을 찾아주는 */
+  align-items: center;
+}
+
+.DiaryEditor .emotion_list_wrapper {
+  /* 신기한게 <div className="input_box emotion_list_wrapper"> 이건데 적용이된다? 띄어쓰긴 안되네 일단  */
+  display: grid; /* grid 즉, 네모칸으로 배열하란거 ㅁㅁㅁㅁㅁ 이렇게  */
+  grid-template-columns: repeat(
+    5,
+    auto
+  ); /* 네모칸을 5개 배열해라. 크기는 auto조절하고  */
+  gap: 2%;
+}
+
+.EmotionItem img {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.EmotionItem span {
+  font-size: 18px;
+}
+
+.EmotionItem_off {
+  background-color: #ececec;
+}
+
+.EmotionItem_on_1 {
+  background-color: #64c964;
+  color: white;
+}
+
+.EmotionItem_on_2 {
+  background-color: #9dd772;
+  color: white;
+}
+
+.EmotionItem_on_3 {
+  background-color: #fdce17;
+  color: white;
+}
+
+.EmotionItem_on_4 {
+  background-color: #fd8446;
+  color: white;
+}
+
+.EmotionItem_on_5 {
+  background-color: #fd565f;
+  color: white;
+}
+
+.DiaryEditor textarea {
+  font-family: "Nanum Gothic Coding";
+  font-size: 20px;
+
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 200px;
+  resize: vertical; /* 위 아래로만 리사이징 될수 있도록 (텍스트 박스는 양옆으로 안움직이자나 원래) */
+
+  border: none;
+  border-radius: 5px;
+  background-color: #ececec;
+
+  padding: 20px; /* padding 위아래왼쪽오른쪽 다 합쳐서 이렇게 줄수도 있음 */
+}
+
+.DiaryEditor .control_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.DiaryPage {
+}
+
+.DiaryPage section {
+  width: 100%;
+  margin-bottom: 100px;
+
+  display: flex;
+  flex-direction: column; /* 이건 세로배치하도록 하는 설정 */
+  align-items: center; /*  item이라 이건 이미지 센터  */
+  text-align: center; /* 이건 그 밑에 텍스트 */
+  /* 암튼 이것저것 다 센터 만들려면 요 위에 4개는 다들어가면 될듯 (flex-direction은 뺴고될듯?) */
+}
+
+.DiaryPage h4 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.DiaryPage .diary_img_wrapper {
+  background-color: #ececec;
+  width: 250px;
+  height: 250px;
+
+  border-radius: 5px; /* 테두리를 둥글게 */
+
+  display: flex;
+  flex-direction: column; /* 이 2가지로, 위에 이미지, 아래 div(텍스트) 세로배치가됨. */
+
+  align-items: center; /*  '세로축을 중심으로' 중앙으로 맞춰줌  */
+  justify-content: space-around; /* 세로축을 중심으로 적당히 가운데로 모아주는 속성값 */
+}
+
+.DiaryPage .emotion_descript {
+  font-size: 25px;
+  color: white;
+}
+
+.DiaryPage .diary_img_wrapper_1 {
+  /* 동적인 classname을 통한 css 적용 */
+  background-color: #64c964;
+}
+
+.DiaryPage .diary_img_wrapper_2 {
+  /* 동적인 classname을 통한 css 적용 */
+  background-color: #9dd772;
+}
+.DiaryPage .diary_img_wrapper_3 {
+  /* 동적인 classname을 통한 css 적용 */
+  background-color: #fdce17;
+}
+.DiaryPage .diary_img_wrapper_4 {
+  /* 동적인 classname을 통한 css 적용 */
+  background-color: #fd8446;
+}
+.DiaryPage .diary_img_wrapper_5 {
+  /* 동적인 classname을 통한 css 적용 */
+  background-color: #fd565f;
+}
+
+.DiaryPage .diary_content_wrapper {
+  width: 100%;
+  background-color: black;
+}
+
+.DiaryPage .diary_content_wrapper p {
+  padding: 20px;
+  text-align: left; /* 이것만 해서는 레프트로 안 붙는데: 상위의 태그(diary_content_wrapper) 가 width를 100% 가지지 못해서 그러함.*/
+  background-color: #ececec;
+
+  border-radius: 5px; /* 모서리를 둥글게  */
+  word-break: keep-all; /* 텍스트가 길어져서 줄을 바꿔야 할 상황이 왓을때 단어를 쪼개서 줄 바꿈 하지 마라?? */
+  overflow-wrap: break-word; /* 텍스트가 wrapper이상으로 넘 길어지면 중간에 끊어서 아래로 줄바꿈 강제하는 명령어  */
+
+  font-size: 20px;
+  font-family: "Yeon Sung";
+  font-weight: 400;
+  line-height: 2.5; /* 한줄 한줄 간격을 여유있게 주는거 줄간격 자간 줄 간격 */
+}
+
+/************ 이 아래는 내가 함 만들어 본거************/
+.Diary .diary_header_wrapper {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  justify-content: space-between; /* 간격 일정하게 띄어주는거. */
+  align-items: center;
+
+  border-bottom: #fd565f;
+}
+
+.Diary .diary_header_wrapper .diary_header_title {
+  font-size: 35px;
+}
+
+.Diary .diary_header_wrapper .diary_header_left {
+  align-items: left;
+  cursor: pointer;
+}
+
+.Diary .diary_header_wrapper .diary_header_right {
+  justify-content: right;
+  cursor: pointer;
+}
+
+.Diary .emotion_img_wrapper {
+  justify-content: center;
+}
+
+.Diary .diary_content_wrapper h2 {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.Diary .diary_content_wrapper {
+  padding: 20px;
+
+  /* min-width: 120px;
+  height: 80px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center; */
+
+  /* margin-left: 50px;
+  margin-right: 50px;
+  width: 100%; */
+}
+
+.Diary .diary_content_wrapper .diary_content1 {
+  padding: 20px;
+
+  border-radius: 10px; /* 모서리 살짝 둥글게 */
+
+  background-color: #ececec;
+}
+
+.Diary .diary_content_wrapper .diary_content2 {
+  background-color: #ececec;
+  font-size: 20px;
+  width: 100%;
+  min-height: 300px;
+
+  /* padding: 30px; */
+
+  font-family: "Nanum";
+
+  box-sizing: border-box;
+
+  border-radius: 5px; /* 모서리 살짝 둥글게 */
+  border: none;
+  resize: vertical; /* 위 아래로만 리사이징 될수 있도록 (텍스트 박스는 양옆으로 안움직이자나 원래) */
+}
+
+/* 
+.App {
+  padding: 20px;
+  font-family: "Nanum Pen Script", cursive;
+  font-family: "Yeon Sung", cursive;
+} */
